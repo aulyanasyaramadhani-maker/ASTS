@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>ASTS PEMROGRAMAN!</title>
+</head>
+<body>
+  <h1>"PROGRAM ASTS AULYA"</h1>
+
+  <!-- Tabel untuk menampilkan hasil -->
+  <table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Usia</th>
+        <th>Status Menikah</th>
+        <th>Hasil Hak Pilih</th>
+      </tr>
+    </thead>
+    <tbody id="dataPeserta"></tbody>
+  </table>
+
+  <script>
+    // Program Hak Pilih Sederhana (pakai tabel)
+    let jumlahPeserta = prompt("Masukkan jumlah peserta:");
+    let tbody = document.getElementById("dataPeserta");
+
+    for (let i = 1; i <= jumlahPeserta; i++) {
+      let nama = prompt("Masukkan nama peserta ke-" + i + ":");
+      let usia = prompt("Masukkan usia " + nama + ":");
+      let statusMenikah = prompt("Apakah sudah menikah? (belum/sudah):");
+
+      let hasil = "";
+      if (usia <= 15) {
+        hasil = "Tidak dapat hak pilih";
+      } else if (usia <= 17) {
+        hasil = "Boleh dapat hak pilih";
+      } else {
+        hasil = "Tentu saja! Dapat hak pilih";
+      }
+
+      // Tambahkan baris ke tabel
+      let baris = `
+        <tr>
+          <td>${i}</td>
+          <td>${nama}</td>
+          <td>${usia}</td>
+          <td>${statusMenikah === "ya" ? "Sudah menikah" : "Belum menikah"}</td>
+          <td>${hasil}</td>
+        </tr>
+      `;
+      tbody.innerHTML += baris;
+    }
+  </script>
+</body>
+</html>
